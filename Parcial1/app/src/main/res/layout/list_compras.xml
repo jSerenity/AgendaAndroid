@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistroCompras">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/compras"
+            android:layout_width="47dp"
+            android:layout_height="49dp"
+            android:tint="#090909"
+            app:srcCompat="@drawable/ic_baseline_shopping_cart_24" />
+
+        <TextView
+            android:id="@+id/text_compras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:text="Lista de Compras"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="56dp">
+
+        <ImageView
+            android:id="@+id/previous1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="330dp"
+            android:tint="#050505"
+            app:srcCompat="@drawable/ic_baseline_keyboard_return_24" />
+
+        <ImageView
+            android:id="@+id/listviw"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="3dp"
+            android:onClick="onClickRC"
+            android:tint="#000000"
+            app:srcCompat="@drawable/ic_round_date_range_24" />
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ListView
+            android:id="@+id/listviewfecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintVertical_bias="1.0"></ListView>
+
+
+    </LinearLayout>
+</LinearLayout>

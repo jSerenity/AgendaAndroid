@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:fontFamily="sans-serif-black"
+        android:text="AGENDA DE COMPRAS"
+        android:textColor="#090909"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/button_articles"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="32dp"
+        android:background="#00FFFFFF"
+        android:onClick="onClick"
+        android:scaleType="fitCenter"
+        android:tint="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:srcCompat="@drawable/ic_baseline_view_list_24" />
+
+    <TextView
+        android:id="@+id/text_artic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Lista de Articulos "
+        android:textColor="#0E0E0E"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_articles" />
+
+    <ImageButton
+        android:id="@+id/button_shop"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="32dp"
+        android:background="#00FFFFFF"
+        android:onClick="onClick"
+        android:scaleType="fitCenter"
+        android:tint="#020202"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_artic"
+        app:srcCompat="@drawable/ic_baseline_shopping_cart_24" />
+
+    <TextView
+        android:id="@+id/text_shop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Lista de Compras"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_shop" />
+
+    <ImageView
+        android:id="@+id/button_check"
+        android:layout_width="61dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_shop"
+        app:srcCompat="@drawable/ic_baseline_check_24" />
+
+    <TextView
+        android:id="@+id/txt_check"
+        android:layout_width="193dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="48dp"
+        android:fontFamily="sans-serif-black"
+        android:text=" Check List de Compras "
+        android:textColor="#090909"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_check" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

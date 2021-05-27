@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".registrararticulos">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="16dp"
+            android:tint="#0C0C0C"
+            app:srcCompat="@drawable/ic_baseline_view_list_24" />
+
+        <TextView
+            android:id="@+id/txt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="120dp"
+            android:layout_marginRight="120dp"
+            android:fontFamily="sans-serif-black"
+            android:text="Lista de Articulos "
+            android:textColor="#020202"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.351"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/txt_arti"
+            android:layout_width="348dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="sans-serif-black"
+            android:freezesText="false"
+            android:hint="articulo"
+            android:inputType="text"
+            android:shadowColor="#191717"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#090909"
+            android:textColorHighlight="#121111"
+            app:layout_constraintTop_toBottomOf="@+id/txt2"
+            tools:layout_editor_absoluteX="16dp" />
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="40dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:tint="#000000"
+            app:srcCompat="@drawable/ic_baseline_keyboard_return_24" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="176dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="150dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/previous"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:tint="#000000"
+                app:srcCompat="@drawable/ic_baseline_skip_previous_24" />
+
+            <ImageView
+                android:id="@+id/next"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:tint="#000000"
+                app:srcCompat="@drawable/ic_baseline_skip_next_24" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:tint="#0B0A0A"
+                app:srcCompat="@drawable/ic_baseline_delete_24" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="#00FFFFFF"
+                android:onClick="onClickR"
+                android:tint="#0B0B0B"
+                app:srcCompat="@drawable/ic_baseline_save_24" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ListView
+            android:id="@+id/listviwarti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintVertical_bias="1.0"></ListView>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

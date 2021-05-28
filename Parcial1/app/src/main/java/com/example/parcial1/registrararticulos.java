@@ -56,7 +56,7 @@ private  void registro(){
     ContentValues values = new ContentValues();
     values.put(tablas.CAMPO_NOMBRE, nombre.getText().toString());
 
-    long id = db.insert(tablas.TABLA_ARTICULOS, tablas.CAMPO_NOMBRE,values);
+    long id = db.insert(tablas.TABLA_ARTICULOS, tablas.CAMPO_ID,values);
     Toast.makeText(getApplicationContext(),"id: "+id, Toast.LENGTH_SHORT).show();
     db.close();
 }

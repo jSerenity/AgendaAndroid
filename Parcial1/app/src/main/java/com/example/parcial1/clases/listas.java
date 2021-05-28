@@ -1,8 +1,9 @@
 package com.example.parcial1.clases;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class listas {
+public class listas implements Serializable {
     private Integer ID;
     private String  fecha;
     private ArrayList<articulos> items;

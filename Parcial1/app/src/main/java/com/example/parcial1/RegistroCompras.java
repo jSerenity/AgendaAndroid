@@ -5,7 +5,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckedTextView;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -37,6 +39,23 @@ public class RegistroCompras extends AppCompatActivity {
         adaptador= new ArrayAdapter(this, android.R.layout.simple_list_item_1,listainfocompra);
         listVfecha.setAdapter(adaptador);
 
+        this.listVfecha.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                listas list  = listarfecha.get(position);
+
+                Intent intent=new Intent(RegistroCompras.this,RegistroCompra2.class);
+
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("Fecha",list);
+
+                intent.putExtras(bundle);
+                startActivity(intent);
+
+            }
+        });
     }
 
     private void consultarlistadecompras() {

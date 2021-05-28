@@ -68,6 +68,16 @@
         app:srcCompat="@drawable/ic_baseline_save_24"
         tools:layout_editor_absoluteX="302dp"
         tools:layout_editor_absoluteY="133dp" />
+        <ImageView
+            android:id="@+id/update"
+            android:layout_width="40dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="300dp"
+            android:tint="#000000"
+            android:onClick="onClickRF"
+            app:srcCompat="@drawable/ic_baseline_save_24"
+            tools:layout_editor_absoluteX="302dp"
+            tools:layout_editor_absoluteY="133dp" />
 </LinearLayout>
 
 

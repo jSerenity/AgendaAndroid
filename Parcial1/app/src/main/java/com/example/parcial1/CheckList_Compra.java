@@ -91,7 +91,7 @@ public class CheckList_Compra extends AppCompatActivity {
         listaarticulos= new ArrayList<articulos>();
         String consulta = "SELECT a."+ tablas.CAMPO_ID+",a."+tablas.CAMPO_NOMBRE+",CASE "+ "IFNULL(b."+tablas.CAMPO_ESTADO_ARTI +",'0')WHEN '0'THEN'0'ELSE'1' END  checkactivos"+ " FROM "+ tablas.TABLA_ARTICULOS+" a" +" INNER JOIN "+ tablas.TABLA_ARTI_LIST +" b" +" ON a."
                 + tablas.CAMPO_ID+" = b."+tablas.ID_ARTICULOS+ " WHERE b." +tablas.ID_LISTAS+ " = " +"'"+list_fecha.getID()+"' "
-                + "AND "+tablas.CAMPO_ESTADO +"= '1'";
+                + "AND a."+tablas.CAMPO_ESTADO +"= 1";
         try {
             Cursor cursor=db.rawQuery(consulta,null);
             while (cursor.moveToNext()){

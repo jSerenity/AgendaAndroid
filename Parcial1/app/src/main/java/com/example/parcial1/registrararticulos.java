@@ -99,7 +99,7 @@ public class registrararticulos extends AppCompatActivity {
 
     private  void registro(){
         SQLiteDatabase db = conn.getWritableDatabase();
-        if(nombre.getText().equals("")){
+        if(nombre.getText().toString().equals("")){
             Toast.makeText(getApplicationContext(),"CAMPO NOMBRE SIN VALOR", Toast.LENGTH_SHORT).show();
         }else{
             ContentValues values = new ContentValues();
@@ -158,15 +158,18 @@ public class registrararticulos extends AppCompatActivity {
         adaptador.notifyDataSetChanged();
     }
     private  void registroUpdate(){
-        SQLiteDatabase db = conn.getWritableDatabase();
-        String[] parametro ={articuloSelected.getID().toString()};
-        ContentValues values = new ContentValues();
-        values.put(tablas.CAMPO_NOMBRE, nombre.getText().toString());
-        values.put(tablas.CAMPO_ESTADO, estado.isChecked()?1:0);
+        if(nombre.getText().toString().equals("")){
+            Toast.makeText(getApplicationContext(),"CAMPO NOMBRE SIN VALOR", Toast.LENGTH_SHORT).show();
+        }else {
+            SQLiteDatabase db = conn.getWritableDatabase();
+            String[] parametro = {articuloSelected.getID().toString()};
+            ContentValues values = new ContentValues();
+            values.put(tablas.CAMPO_NOMBRE, nombre.getText().toString());
+            values.put(tablas.CAMPO_ESTADO, estado.isChecked() ? 1 : 0);
 
-        db.update(tablas.TABLA_ARTICULOS,values, tablas.CAMPO_ID+"=?",parametro);
-        Toast.makeText(getApplicationContext(),"ARTICULO ACTUALIZADO: ", Toast.LENGTH_SHORT).show();
-        db.close();
-
+            db.update(tablas.TABLA_ARTICULOS, values, tablas.CAMPO_ID + "=?", parametro);
+            Toast.makeText(getApplicationContext(), "ARTICULO ACTUALIZADO: ", Toast.LENGTH_SHORT).show();
+            db.close();
+        }
     }
 }

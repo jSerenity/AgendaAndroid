@@ -62,17 +62,22 @@ public class registrararticulos extends AppCompatActivity {
 
     }
     public void onClickR(View view){
-        if(updateStatus){
-            registroUpdate();
-            updateStatus=false;
-            nombre.setText("");
-            estado.setChecked(false);
-        }else{
-            registro();
-            updateStatus=false;
-            nombre.setText("");
-            estado.setChecked(false);
+        switch (view.getId()) {
+            case R.id.guardarArticulo:
+                if(updateStatus){
+                    registroUpdate();
+                    updateStatus=false;
+                    nombre.setText("");
+                    estado.setChecked(false);
+                }else{
+                    registro();
+                    updateStatus=false;
+                    nombre.setText("");
+                    estado.setChecked(false);
+                }
+                break;
         }
+
 
         consultarlistadearticulos();
         recargardata();
@@ -94,13 +99,18 @@ public class registrararticulos extends AppCompatActivity {
 
     private  void registro(){
         SQLiteDatabase db = conn.getWritableDatabase();
-    ContentValues values = new ContentValues();
-    values.put(tablas.CAMPO_NOMBRE, nombre.getText().toString());
-    values.put(tablas.CAMPO_ESTADO, estado.isChecked()?1:0);
+        if(nombre.getText().equals("")){
+            Toast.makeText(getApplicationContext(),"CAMPO NOMBRE SIN VALOR", Toast.LENGTH_SHORT).show();
+        }else{
+            ContentValues values = new ContentValues();
+            values.put(tablas.CAMPO_NOMBRE, nombre.getText().toString());
+            values.put(tablas.CAMPO_ESTADO, estado.isChecked()?1:0);
 
-    long id = db.insert(tablas.TABLA_ARTICULOS, tablas.CAMPO_ID,values);
-    Toast.makeText(getApplicationContext(),"id: "+id, Toast.LENGTH_SHORT).show();
-    db.close();
+            long id = db.insert(tablas.TABLA_ARTICULOS, tablas.CAMPO_ID,values);
+            Toast.makeText(getApplicationContext(),"id: "+id, Toast.LENGTH_SHORT).show();
+            db.close();
+        }
+
 }
     private void registrararticulo() {
 
@@ -126,7 +136,7 @@ public class registrararticulos extends AppCompatActivity {
             arti = new articulos();
             arti.setID(cursor.getInt(0));
             arti.setNombre(cursor.getString(1));
-            arti.setActive(cursor.getInt(2)==1?true:false);
+            arti.setEstado(cursor.getInt(2)==1?true:false);
             listaarticulos.add(arti);
 
         }

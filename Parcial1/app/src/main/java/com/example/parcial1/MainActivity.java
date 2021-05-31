@@ -26,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.button_shop:
                 redirectintent=new Intent(MainActivity.this,RegistroCompras.class);
                 break;
+            case R.id.button_check:
+                redirectintent=new Intent(MainActivity.this,CheckList.class);
+                break;
         }
         if (redirectintent!=null){
             startActivity(redirectintent);

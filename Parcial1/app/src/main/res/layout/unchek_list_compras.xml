@@ -53,6 +53,7 @@
         android:layout_width="41dp"
         android:layout_height="41dp"
         android:layout_marginLeft="300dp"
+        android:onClick="onClickCheck"
         android:tint="#000000"
         app:srcCompat="@drawable/ic_baseline_keyboard_return_24" />
 

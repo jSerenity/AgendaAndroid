@@ -41,6 +41,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginLeft="330dp"
+            android:onClick="onClickRC"
             android:tint="#050505"
             app:srcCompat="@drawable/ic_baseline_keyboard_return_24" />
 

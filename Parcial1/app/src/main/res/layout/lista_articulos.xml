@@ -82,7 +82,7 @@
             android:layout_height="36dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:onClick="onClickR"
+            android:onClick="onClickREDIRECT"
             android:tint="#000000"
             app:srcCompat="@drawable/ic_baseline_keyboard_return_24" />
 
@@ -116,7 +116,7 @@
                 app:srcCompat="@drawable/ic_baseline_delete_24" />
 
             <ImageView
-                android:id="@+id/imageView8"
+                android:id="@+id/guardarArticulo"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="#00FFFFFF"

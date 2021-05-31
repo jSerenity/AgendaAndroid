@@ -54,7 +54,7 @@
         android:layout_width="40dp"
         android:layout_height="32dp"
         android:tint="#050505"
-
+        android:onClick="onClickRF"
         app:srcCompat="@drawable/ic_baseline_keyboard_return_24"
         tools:layout_editor_absoluteX="23dp"
         tools:layout_editor_absoluteY="133dp" />

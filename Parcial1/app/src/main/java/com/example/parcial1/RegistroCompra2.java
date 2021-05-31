@@ -114,7 +114,7 @@ public class RegistroCompra2 extends AppCompatActivity {
         SQLiteDatabase db=conn.getReadableDatabase();
         articulos arti=null;
         listaarticulos= new ArrayList<articulos>();
-        Cursor cursor=db.rawQuery("SELECT * FROM "+ tablas.TABLA_ARTICULOS,null);
+        Cursor cursor=db.rawQuery("SELECT * FROM "+ tablas.TABLA_ARTICULOS +" WHERE "+ tablas.CAMPO_ESTADO +"= 1",null);
 
         while (cursor.moveToNext()){
             arti = new articulos();
@@ -134,7 +134,7 @@ public class RegistroCompra2 extends AppCompatActivity {
         listaarticulos= new ArrayList<articulos>();
         String consulta = "SELECT a."+tablas.CAMPO_ID+",a."+tablas.CAMPO_NOMBRE+",CASE "+ "IFNULL(b."+tablas.ID_LISTAS +",'0')WHEN '0'THEN'0'ELSE'1' END  checkactivos"+ " FROM "+ tablas.TABLA_ARTICULOS+" a" +" LEFT JOIN "+ tablas.TABLA_ARTI_LIST +" b" +" ON a."
                 + tablas.CAMPO_ID+" = b."+tablas.ID_ARTICULOS+ " AND b." +tablas.ID_LISTAS+ " = " +"'"+list_fecha.getID()+"'"
-                + " WHERE "+tablas.CAMPO_ESTADO +"= 1";
+                + " WHERE a."+tablas.CAMPO_ESTADO +"= 1";
         try {
             Cursor cursor=db.rawQuery(consulta,null);
             while (cursor.moveToNext()){

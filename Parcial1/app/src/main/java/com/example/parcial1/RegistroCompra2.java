@@ -1,6 +1,7 @@
 package com.example.parcial1;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -98,9 +99,13 @@ public class RegistroCompra2 extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.save:
                 registro();
+                redirect();
                 break;
             case R.id.update:
                 registroUpdate();
+                break;
+            case R.id.previus_2:
+                redirect();
                 break;
         }
     }
@@ -128,7 +133,8 @@ public class RegistroCompra2 extends AppCompatActivity {
         articulos arti=null;
         listaarticulos= new ArrayList<articulos>();
         String consulta = "SELECT a."+tablas.CAMPO_ID+",a."+tablas.CAMPO_NOMBRE+",CASE "+ "IFNULL(b."+tablas.ID_LISTAS +",'0')WHEN '0'THEN'0'ELSE'1' END  checkactivos"+ " FROM "+ tablas.TABLA_ARTICULOS+" a" +" LEFT JOIN "+ tablas.TABLA_ARTI_LIST +" b" +" ON a."
-                + tablas.CAMPO_ID+" = b."+tablas.ID_ARTICULOS+ " AND b." +tablas.ID_LISTAS+ " = " +"'"+list_fecha.getID()+"'";
+                + tablas.CAMPO_ID+" = b."+tablas.ID_ARTICULOS+ " AND b." +tablas.ID_LISTAS+ " = " +"'"+list_fecha.getID()+"'"
+                + " WHERE "+tablas.CAMPO_ESTADO +"= 1";
         try {
             Cursor cursor=db.rawQuery(consulta,null);
             while (cursor.moveToNext()){
@@ -216,4 +222,9 @@ public class RegistroCompra2 extends AppCompatActivity {
        db.delete(tablas.TABLA_ARTI_LIST,tablas.ID_LISTAS+"=?",parametro);
        db.close();
    }
+    private void redirect() {
+        Intent intent=new Intent(RegistroCompra2.this,RegistroCompras.class);
+
+        startActivity(intent);
+    }
 }

@@ -35,7 +35,7 @@
         android:orientation="horizontal">
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/editTextFecha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -61,6 +61,7 @@
         android:layout_width="41dp"
         android:layout_height="41dp"
         android:tint="#000000"
+        android:onClick="onClickCheck"
         app:srcCompat="@drawable/ic_baseline_save_24" />
 
     </LinearLayout>

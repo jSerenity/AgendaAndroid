@@ -7,36 +7,36 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CheckedTextView;
-import android.widget.EditText;
 import android.widget.ListView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.parcial1.clases.articulos;
 import com.example.parcial1.clases.listas;
 import com.example.parcial1.tablas.tablas;
 
 import java.util.ArrayList;
 
-public class RegistroCompras extends AppCompatActivity {
+public class CheckList extends AppCompatActivity {
 
     ListView listVfecha;
     ArrayList<listas> listarfecha;
     ArrayList<String> listainfocompra;
     ArrayAdapter adaptador;
     AppSQLiteOpenHepler conn;
+
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_compras);
+        setContentView(R.layout.check_list);
 
-        listVfecha= (ListView) findViewById(R.id.listviewfecha);
+        listVfecha= (ListView) findViewById(R.id.listViewcheck);
 
         conn= new AppSQLiteOpenHepler(this,"db_agenda",null,1);
         consultarlistadecompras();
-        recargardata();
 
+        adaptador= new ArrayAdapter(this, android.R.layout.simple_list_item_1,listainfocompra);
+        listVfecha.setAdapter(adaptador);
 
         this.listVfecha.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -45,7 +45,7 @@ public class RegistroCompras extends AppCompatActivity {
 
                 listas list  = listarfecha.get(position);
 
-                Intent intent=new Intent(RegistroCompras.this,RegistroCompra2.class);
+                Intent intent=new Intent(CheckList.this,CheckList_Compra.class);
 
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("Fecha",list);
@@ -56,13 +56,6 @@ public class RegistroCompras extends AppCompatActivity {
             }
         });
     }
-
-    private void recargardata() {
-        adaptador= new ArrayAdapter(this, android.R.layout.simple_list_item_1,listainfocompra);
-        listVfecha.setAdapter(adaptador);
-        adaptador.notifyDataSetChanged();
-    }
-
     private void consultarlistadecompras() {
         SQLiteDatabase db=conn.getReadableDatabase();
         listas fecha=null;
@@ -79,9 +72,7 @@ public class RegistroCompras extends AppCompatActivity {
         }
         db.close();
         obtenerlisfecha();
-
     }
-
     private void obtenerlisfecha() {
         listainfocompra = new ArrayList<String>();
 
@@ -89,20 +80,17 @@ public class RegistroCompras extends AppCompatActivity {
             listainfocompra.add(listarfecha.get(i).getFecha());
         }
     }
+    public void onClickCheckMain(View view){
+        switch (view.getId()) {
+            case R.id.previus_check:
+                redirect();
+                break;
+        }
+    }
 
-    public void onClickRC(View view){
-        Intent redirectintent= null;
-        switch (view.getId()){
-            case R.id.listviw:
-                redirectintent=new Intent(RegistroCompras.this,RegistroCompra2.class);
-                break;
-            case R.id.previous1:
-                redirectintent=new Intent(RegistroCompras.this,MainActivity.class);
-                break;
-        }
-        if (redirectintent!=null){
-            startActivity(redirectintent);
-        }
-        // registrararticulo();
+    private void redirect() {
+        Intent intent=new Intent(CheckList.this,MainActivity.class);
+
+        startActivity(intent);
     }
 }

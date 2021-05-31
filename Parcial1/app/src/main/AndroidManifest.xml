@@ -12,6 +12,8 @@
         <activity android:name=".registrararticulos"></activity>
         <activity android:name=".RegistroCompras"></activity>
         <activity android:name=".RegistroCompra2"></activity>
+        <activity android:name=".CheckList"></activity>
+        <activity android:name=".CheckList_Compra"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

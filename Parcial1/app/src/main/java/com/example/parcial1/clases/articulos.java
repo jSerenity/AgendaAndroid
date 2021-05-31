@@ -7,6 +7,15 @@ public class articulos implements Serializable {
     private boolean active = false;
     private String nombre;
     private Integer ID;
+    private boolean estado = false;
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
 
     public articulos() {
 

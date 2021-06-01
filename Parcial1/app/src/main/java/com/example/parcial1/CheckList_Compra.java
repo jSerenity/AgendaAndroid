@@ -89,7 +89,7 @@ public class CheckList_Compra extends AppCompatActivity {
         SQLiteDatabase db=conn.getReadableDatabase();
         articulos arti=null;
         listaarticulos= new ArrayList<articulos>();
-        String consulta = "SELECT a."+ tablas.CAMPO_ID+",a."+tablas.CAMPO_NOMBRE+",CASE "+ "IFNULL(b."+tablas.CAMPO_ESTADO_ARTI +",'0')WHEN '0'THEN'0'ELSE'1' END  checkactivos"+ " FROM "+ tablas.TABLA_ARTICULOS+" a" +" INNER JOIN "+ tablas.TABLA_ARTI_LIST +" b" +" ON a."
+        String consulta = "SELECT a."+ tablas.CAMPO_ID+",a."+tablas.CAMPO_NOMBRE+",CASE "+ "b."+tablas.CAMPO_ESTADO_ARTI +" WHEN '0'THEN'0'ELSE'1' END  checkactivos"+ " FROM "+ tablas.TABLA_ARTICULOS+" a" +" INNER JOIN "+ tablas.TABLA_ARTI_LIST +" b" +" ON a."
                 + tablas.CAMPO_ID+" = b."+tablas.ID_ARTICULOS+ " WHERE b." +tablas.ID_LISTAS+ " = " +"'"+list_fecha.getID()+"' "
                 + "AND a."+tablas.CAMPO_ESTADO +"= 1";
         try {
@@ -123,38 +123,52 @@ public class CheckList_Compra extends AppCompatActivity {
 
     }
     private  void registroUpdate(){
-        ArrayList<Integer> articulos =articulosSeleccionados();
-        actualiarFechaARTICULO(articulos,list_fecha.getID());
+        //ArrayList<Integer> articulos =articulosSeleccionados();
+        ArrayList<articulos> selectARTI= articulosSeleccionados();
+        actualiarFechaARTICULO(selectARTI,list_fecha.getID());
 
     }
 
-    private void actualiarFechaARTICULO(ArrayList<Integer> articulos, Integer id) {
+    private void actualiarFechaARTICULO(ArrayList<articulos> articulos, Integer id) {
         SQLiteDatabase db = conn.getWritableDatabase();
 
+
         for(int i=0;i<listaarticulos.size();i++){
-            String[] parametro ={id.toString(),listaarticulos.get(i).getID().toString() };
+            Integer estadoValue =listaarticulos.get(i).isActive()?1:0;
+            String QUERY = "UPDATE "+ tablas.TABLA_ARTI_LIST + " SET "+
+                    tablas.CAMPO_ESTADO_ARTI +" ="+estadoValue+
+                    " WHERE "+tablas.ID_LISTAS +" ="+id.toString()+ " AND "+ tablas.ID_ARTICULOS +
+                    " ="+listaarticulos.get(i).getID().toString();
+            try {
+                db.execSQL(QUERY);
+            }catch (Exception e){
+                String A =e.toString();
+            }
+
+            /*String[] parametro ={id.toString(),listaarticulos.get(i).getID().toString() };
             ContentValues values = new ContentValues();
             values.put(tablas.CAMPO_ESTADO_ARTI, listaarticulos.get(i).isActive()?1:0);
-
-            db.update(tablas.TABLA_ARTI_LIST,values, tablas.ID_LISTAS+"=? AND "+ tablas.ID_ARTICULOS+ " = ?",parametro);
+            db.update(tablas.TABLA_ARTI_LIST,values, tablas.ID_LISTAS+"=? AND "+ tablas.ID_ARTICULOS+ " =?",parametro);*/
         }
 
         Toast.makeText(getApplicationContext(),"ARTICULOS ACTUALIZADOS: ", Toast.LENGTH_SHORT).show();
         db.close();
     }
 
-    public ArrayList<Integer> articulosSeleccionados()  {
+    public ArrayList<articulos> articulosSeleccionados()  {
 
         SparseBooleanArray sp = listViewarticulos.getCheckedItemPositions();
 
-        ArrayList<Integer> sb= new ArrayList<Integer>();
+        ArrayList<articulos> sb= new ArrayList<articulos>();
 
         for(int i=0;i<sp.size();i++){
-            if(sp.valueAt(i)==true){
+            //if(sp.valueAt(i)==true){
                 articulos ARTIC= (articulos) listViewarticulos.getItemAtPosition(i);
                 int s= ARTIC.getID();
-                sb.add(s);
-            }
+                ARTIC.setActive(sp.valueAt(i));
+                listaarticulos.get(i).setActive(sp.valueAt(i));
+                sb.add(ARTIC);
+            //}
         }
         return sb;
     }

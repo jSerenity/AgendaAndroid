@@ -13,8 +13,8 @@
 
         <ImageView
             android:id="@+id/imageGuncheck"
-            android:layout_width="49dp"
-            android:layout_height="37dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:tint="#000000"
             app:srcCompat="@drawable/ic_baseline_check_24" />
 
@@ -52,10 +52,10 @@
         android:id="@+id/imageView4"
         android:layout_width="41dp"
         android:layout_height="41dp"
-        android:layout_marginLeft="300dp"
         android:onClick="onClickCheck"
         android:tint="#000000"
-        app:srcCompat="@drawable/ic_baseline_keyboard_return_24" />
+        app:srcCompat="@drawable/ic_baseline_keyboard_return_24"
+         />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -63,7 +63,8 @@
         android:layout_height="41dp"
         android:tint="#000000"
         android:onClick="onClickCheck"
-        app:srcCompat="@drawable/ic_baseline_save_24" />
+        app:srcCompat="@drawable/ic_baseline_save_24"
+        android:layout_marginLeft="310dp" />
 
     </LinearLayout>
 
@@ -77,8 +78,8 @@
 
         <ListView
             android:id="@+id/listvieunchek"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             app:layout_constraintVertical_bias="1.0"></ListView>
 
     </LinearLayout>

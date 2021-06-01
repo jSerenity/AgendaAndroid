@@ -11,15 +11,9 @@
      android:orientation="horizontal">
     <ImageView
         android:id="@+id/check_list"
-        android:layout_width="53dp"
-        android:layout_height="51dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:tint="#090909"
-        app:layout_constraintBottom_toTopOf="@+id/_dynamic"
-        app:layout_constraintEnd_toStartOf="@+id/Textlist"
-        app:layout_constraintHorizontal_bias="0.615"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.054"
         app:srcCompat="@drawable/ic_baseline_check_24" />
 
     <TextView
@@ -59,8 +53,9 @@
 
     <ListView
         android:id="@+id/listViewcheck"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:clickable="true"
         app:layout_constraintVertical_bias="1.0"/>
     </LinearLayout>
 </LinearLayout>

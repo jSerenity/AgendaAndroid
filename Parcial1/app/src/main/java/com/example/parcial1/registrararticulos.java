@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -24,6 +26,7 @@ import com.example.parcial1.clases.listas;
 import com.example.parcial1.tablas.tablas;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class registrararticulos extends AppCompatActivity {
@@ -75,6 +78,11 @@ public class registrararticulos extends AppCompatActivity {
                     nombre.setText("");
                     estado.setChecked(false);
                 }
+                break;
+            case R.id.imageView7:
+                updateStatus=false;
+                nombre.setText("");
+                estado.setChecked(false);
                 break;
         }
 

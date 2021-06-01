@@ -14,11 +14,8 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:tint="#0C0C0C"
             app:srcCompat="@drawable/ic_baseline_view_list_24" />
 
@@ -26,17 +23,11 @@
             android:id="@+id/txt2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="120dp"
-            android:layout_marginRight="120dp"
+            android:layout_marginTop="23dp"
             android:fontFamily="sans-serif-black"
             android:text="Lista de Articulos "
             android:textColor="#020202"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.351"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textSize="20sp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -113,6 +104,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:tint="#0B0A0A"
+                android:onClick="onClickR"
                 app:srcCompat="@drawable/ic_baseline_delete_24" />
 
             <ImageView
@@ -138,9 +130,12 @@
 
         <ListView
             android:id="@+id/listviwarti"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintVertical_bias="1.0"></ListView>
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:clickable="true"
+            app:layout_constraintVertical_bias="1.0">
+
+        </ListView>
 
 
     </LinearLayout>
